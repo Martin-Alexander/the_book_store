@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   defaults format: :json do
     namespace :api do
       resources :books, only: [] do
