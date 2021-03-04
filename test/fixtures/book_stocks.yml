@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book_store: one
+  book: one
+  stock: 1
+  in_stock: false
+
+two:
+  book_store: two
+  book: two
+  stock: 1
+  in_stock: false
