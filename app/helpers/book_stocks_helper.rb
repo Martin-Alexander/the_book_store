@@ -1,0 +1,2 @@
+module BookStocksHelper
+end
