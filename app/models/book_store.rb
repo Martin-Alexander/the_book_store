@@ -3,6 +3,8 @@ class BookStore < ApplicationRecord
   has_many :books, through: :book_stocks
   has_many :users
 
+  validates :name, presence: true
+
   before_destroy :remove_foreign_key_from_users
 
   private
