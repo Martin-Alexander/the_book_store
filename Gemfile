@@ -58,3 +58,5 @@ gem "faker", "~> 2.16"
 gem "devise", "~> 4.7"
 
 gem "simple_token_authentication", "~> 1.17"
+
+gem "rspec-rails", "~> 4.0", :groups => [:test, :development]
