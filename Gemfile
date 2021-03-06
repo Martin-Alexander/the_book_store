@@ -64,3 +64,7 @@ gem "rspec-rails", "~> 4.0", :groups => [:test, :development]
 gem "factory_bot_rails", "~> 6.1", :groups => [:test, :development]
 
 gem "shoulda-matchers", "~> 4.5", :group => :test
+
+gem "rails-controller-testing", "~> 1.0", :group => :test
+
+gem "pundit", "~> 2.1"
