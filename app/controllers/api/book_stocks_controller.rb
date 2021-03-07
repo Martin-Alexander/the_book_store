@@ -42,7 +42,7 @@ module Api
     private
 
     def book_stock_params
-      params.require(:book_stock).permit(:book_id, :stock, :in_stock)
+      params.require(:book_stock).permit(:book_id, :stock_level, :in_stock)
     end
   end
 end

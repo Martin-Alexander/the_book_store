@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_233209) do
+ActiveRecord::Schema.define(version: 2021_03_07_030632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_233209) do
   create_table "book_stocks", force: :cascade do |t|
     t.bigint "book_store_id", null: false
     t.bigint "book_id", null: false
-    t.integer "stock", default: 0, null: false
+    t.integer "stock_level", default: 0, null: false
     t.boolean "in_stock", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

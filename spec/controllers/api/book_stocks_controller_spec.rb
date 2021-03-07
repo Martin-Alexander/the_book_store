@@ -41,7 +41,7 @@ RSpec.describe Api::BookStocksController, type: :controller do
         {
           book_stock: {
             book_id: create(:book).id,
-            stock: 10,
+            stock_level: 10,
             in_stock: true
           }
         }
@@ -62,7 +62,7 @@ RSpec.describe Api::BookStocksController, type: :controller do
         last_book_stock = BookStock.last
 
         expect(last_book_stock.book_id)      .to eq(valid_params[:book_stock][:book_id])
-        expect(last_book_stock.stock)        .to eq(valid_params[:book_stock][:stock])
+        expect(last_book_stock.stock_level)  .to eq(valid_params[:book_stock][:stock_level])
         expect(last_book_stock.in_stock)     .to eq(valid_params[:book_stock][:in_stock])
         expect(last_book_stock.book_store_id).to eq(user.book_store_id)
       end
@@ -79,7 +79,7 @@ RSpec.describe Api::BookStocksController, type: :controller do
         {
           book_stock: {
             book_id: create(:book).id,
-            stock: nil,
+            stock_level: nil,
             in_stock: nil
           }
         }
@@ -98,8 +98,8 @@ RSpec.describe Api::BookStocksController, type: :controller do
   end
 
   describe "PATCH #update" do
-    let(:user)              { create(:user) }
-    let(:my_book_stock)     { create(:book_stock, book_store: user.book_store) }
+    let(:user)          { create(:user) }
+    let(:my_book_stock) { create(:book_stock, book_store: user.book_store) }
 
     context "with valid params" do
       before(:each) { set_auth_token_header(user) }
@@ -109,7 +109,7 @@ RSpec.describe Api::BookStocksController, type: :controller do
           id: my_book_stock.id,
           book_stock: {
             book_id: create(:book).id,
-            stock: 20,
+            stock_level: 20,
             in_stock: false
           }
         }
@@ -127,7 +127,7 @@ RSpec.describe Api::BookStocksController, type: :controller do
         my_book_stock.reload
 
         expect(my_book_stock.book_id)      .to eq(valid_params[:book_stock][:book_id])
-        expect(my_book_stock.stock)        .to eq(valid_params[:book_stock][:stock])
+        expect(my_book_stock.stock_level)  .to eq(valid_params[:book_stock][:stock_level])
         expect(my_book_stock.in_stock)     .to eq(valid_params[:book_stock][:in_stock])
       end
 
@@ -143,7 +143,7 @@ RSpec.describe Api::BookStocksController, type: :controller do
         {
           id: my_book_stock.id,
           book_stock: {
-            stock: -20,
+            stock_level: -20,
             in_stock: false
           }
         }
@@ -157,7 +157,7 @@ RSpec.describe Api::BookStocksController, type: :controller do
 
       it "does not change the book stock" do
         expect { request }
-          .to not_change(my_book_stock, :stock)
+          .to not_change(my_book_stock, :stock_level)
           .and not_change(my_book_stock, :in_stock)
       end
     end
