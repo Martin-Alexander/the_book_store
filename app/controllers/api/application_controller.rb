@@ -1,5 +1,6 @@
 module Api
   class ApplicationController < ActionController::API
+    include ActionController::Caching
     acts_as_token_authentication_handler_for User
 
     include Pundit
