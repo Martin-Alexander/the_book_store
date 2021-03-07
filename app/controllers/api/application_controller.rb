@@ -1,5 +1,7 @@
 module Api
   class ApplicationController < ActionController::API
+    acts_as_token_authentication_handler_for User
+
     include Pundit
 
     rescue_from Pundit::NotAuthorizedError, with: :respond_with_forbidden

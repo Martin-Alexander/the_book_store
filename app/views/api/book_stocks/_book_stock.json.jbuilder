@@ -2,7 +2,6 @@ json.id book_stock.id
 json.stock book_stock.stock
 json.in_stock book_stock.in_stock
 json.created_at book_stock.created_at
-json.updated_at book_stock.updated_at
 
 json.book do
   json.id book_stock.book.id

@@ -1,7 +1,5 @@
 module Api
   class BookStocksController < ApplicationController
-    acts_as_token_authentication_handler_for User
-
     def index
       @book_stocks = policy_scope(BookStock).all
     end
