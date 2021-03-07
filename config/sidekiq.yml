@@ -1,0 +1,4 @@
+:schedule:
+  update_in_stock:
+    cron: '*/5 * * * *' # Runs every 1 minute
+    class: BookStocks::UpdateInStockJob

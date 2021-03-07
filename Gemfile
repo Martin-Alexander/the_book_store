@@ -70,3 +70,7 @@ gem "rails-controller-testing", "~> 1.0", :group => :test
 gem "pundit", "~> 2.1"
 
 gem "rack-attack", "~> 6.5"
+
+gem "sidekiq", "~> 6.1"
+
+gem "sidekiq-scheduler", "~> 3.0"
