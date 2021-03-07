@@ -17,7 +17,7 @@ RSpec.describe DashboardsController, type: :controller do
         expect(response).to have_http_status(200)
       end
 
-      it "includes user's book_stock in response" do
+      it "sets `@user` to signed in user" do
         expect(assigns(:user)).to eq(user)
       end
 
