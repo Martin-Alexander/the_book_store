@@ -22,8 +22,8 @@ end
 
   puts "Creating book stocks"
   books.sample(10).each do |book|
-    stock = rand(0..10)
-    book_store.book_stocks.create! book: book, stock: stock, in_stock: stock.zero?
+    stock_level = rand(0..10)
+    book_store.book_stocks.create! book: book, stock_level: stock_level, in_stock: stock_level.zero?
   end
 
   puts "Creating user"
