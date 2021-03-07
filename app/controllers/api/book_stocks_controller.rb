@@ -20,7 +20,6 @@ module Api
     end
 
     def update
-
       @book_stock = BookStock.find(params[:id])
 
       authorize @book_stock

@@ -1,10 +1,12 @@
 require "rails_helper"
 
 RSpec.describe Api::BookStocksController, type: :controller do
+  render_views
+
   describe "GET #index" do
-    let(:user)                 { create(:user)}
-    let(:users_book_stock)     { create(:book_stock, { book_store: user.book_store }) }
-    let(:not_users_book_stock) { create(:book_stock) }
+    let!(:user)                 { create(:user)}
+    let!(:users_book_stock)     { create(:book_stock, { book_store: user.book_store }) }
+    let!(:not_users_book_stock) { create(:book_stock) }
 
     before :each do
       set_auth_token_header(user)
