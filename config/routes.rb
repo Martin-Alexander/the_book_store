@@ -7,4 +7,8 @@ Rails.application.routes.draw do
       resources :books, only: [:index]
     end
   end
+
+  resource :dashboard, only: [:show]
+
+  root to: "landing_pages#show", as: :landing_page
 end
