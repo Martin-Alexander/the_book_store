@@ -9,7 +9,7 @@ RSpec.describe BookStock, type: :model do
   it { should belong_to(:book_store) }
 
   describe "#update_in_stock_to_reflect_stock_level!" do
-    it "properly sets `stock`" do
+    it "properly sets `in_stock`" do
       book_stock_1 = create(:book_stock, in_stock: false, stock_level: 10)
 
       expect do
