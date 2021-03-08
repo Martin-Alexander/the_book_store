@@ -31,40 +31,5 @@
 </div>
 
 <div class="max-w-screen-2xl mx-auto px-4 pt-0.5">
-  <div data-controller="searchable-table">
-    <div class="my-4 flex space-x-6 items-center">
-      <h3 class="font-header text-xl text-black text-opacity-90 font-bold">Books in Stock</h3>
-      <input
-        class="h-10 w-80 block px-4 border border-gray-300 border-solid"
-        type="text"
-        placeholder="Search among <%= pluralize(@book_stocks.count, "book") %>"
-        data-action="input->searchable-table#filter"
-      >
-    </div>
-    <p class="font-bold mb-4" data-searchable-table-target="resultsSummary"></p>
-    <table class="w-full table-auto">
-      <thead>
-        <tr style="background-color: var(--gray);">
-          <th><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap">id</div></th>
-          <th><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap">book</div></th>
-          <th><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap">stock level</div></th>
-          <th><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap">in stock</div></th>
-          <th><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap">created at</div></th>
-          <th><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap">updated at</div></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @book_stocks.each do |book_stock| %>
-          <tr data-searchable-table-target="row" data-searchable-by="<%= book_stock.book.title %>">
-            <td><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap"><%= book_stock.id %></div></td>
-            <td><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap"><%= book_stock.book.title %></div></td>
-            <td><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap"><%= book_stock.stock_level %></div></td>
-            <td><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap"><%= book_stock.in_stock %></div></td>
-            <td><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap"><%= book_stock.created_at.strftime("%e/%m/%Y %l:%M:%S %p") %></div></td>
-            <td><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap"><%= book_stock.updated_at.strftime("%e/%m/%Y %l:%M:%S %p") %></div></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <%= render partial: "shared/styled_table", locals: { data: @table_data } %>
 </div>

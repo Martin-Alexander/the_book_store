@@ -1,15 +1,31 @@
 <nav
   style="background-color: var(--dark-blue); height: 60px;"
-  class="flex space-x-7"
+  class="flex justify-between px-4"
 >
-  <h1 class="mt-4 ml-4 font-header text-xl text-white font-black text-opacity-100">Book Shelf</h1>
-  <ul class="flex font-header text-lg font-bold space-x-5 h-full">
-    <% if current_page?(dashboard_path) %>
-      <li class="pt-4 text-opacity-100 border-b-4 border-white border-solid text-white">Dashboard</li>
-    <% else %>
-      <li class="pt-4"><%= link_to "Dashboard", "#", class: "text-white text-opacity-75 hover:text-opacity-100" %></li>
+  <div class="flex space-x-7">
+    <%= link_to landing_page_path do %>
+      <h1 class="mt-4 font-header text-xl text-white font-black text-opacity-100">Book Shelf</h1>
     <% end %>
-    <li class="pt-4"><%= link_to "All Books", "#", class: "text-white text-opacity-75 hover:text-opacity-100" %></li>
-    <li class="pt-4"><%= link_to "Account", "#",   class: "text-white text-opacity-75 hover:text-opacity-100" %></li>
-  </ul>
+    <ul class="navlink-list">
+      <% if current_page?(dashboard_path) %>
+        <li class="navlink-link--current-page">Dashboard</li>
+      <% else %>
+        <li class="navbar-link"><%= link_to "Dashboard", dashboard_path %></li>
+      <% end %>
+
+      <% if current_page?(books_path) %>
+        <li class="navlink-link--current-page">All Books</li>
+      <% else %>
+        <li class="navbar-link"><%= link_to "All Books", books_path %></li>
+      <% end %>
+
+      <li class="navbar-link"><%= link_to "Account", "#" %></li>
+    </ul>
+  </div>
+
+  <div>
+    <ul class="navlink-list">
+      <li class="navbar-link"><%= link_to "Sign Out", "#" %></li>
+    </ul>
+  </div>
 </nav>

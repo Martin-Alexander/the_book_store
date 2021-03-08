@@ -1,0 +1,30 @@
+<div data-controller="searchable-table">
+  <div class="my-4 flex space-x-6 items-center">
+    <h3 class="font-header text-xl text-black text-opacity-90 font-bold"><%= data.fetch(:title) %></h3>
+    <input
+      class="h-10 w-80 block px-4 border border-gray-300 border-solid"
+      type="text"
+      placeholder="<%= data.fetch(:search_input_placehodler) %>"
+      data-action="input->searchable-table#filter"
+    >
+  </div>
+  <p class="font-medium mb-4" data-searchable-table-target="resultsSummary"></p>
+  <table class="w-full table-auto">
+    <thead>
+      <tr style="background-color: var(--gray);">
+        <% data.fetch(:headers).each do |header| %>
+          <th><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap font-medium"><%= header %></div></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.fetch(:rows).each do |row| %>
+        <tr data-searchable-table-target="row" data-searchable-by="<%= row[data.fetch(:searchable_row_index)] %>">
+          <% row.each do |cell| %>
+            <td><div class="flex items-center h-9 p-2 text-left overflow-ellipsis whitespace-nowrap"><%= cell %></div></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
