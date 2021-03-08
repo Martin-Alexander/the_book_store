@@ -8,8 +8,14 @@
     <ul class="text-md text-black text-opacity-75 font-medium">
       <li class="flex items-baseline mb-1">
         <div style="color: var(--light-blue);" class=" w-36">API Key: </div>
-        <div class="text-black text-opacity-100"><%= @user.authentication_token %>-P7xiyy</div>
-        <div style="color: var(--light-blue)" class="ml-2 text-xs underline opacity-80 cursor-pointer">copy to clipboard</div>
+        <div class="text-black text-opacity-100"><%= @user.authentication_token %></div>
+        <div data-controller="clipboard" data-clipboard-copy="<%= @user.authentication_token %>">
+          <div
+            style="color: var(--light-blue)"
+            class="ml-2 text-xs underline opacity-80 cursor-pointer"
+            data-action="click->clipboard#copy"
+          >copy to clipboard</div>
+        </div>
       </li>
       <li class="flex items-baseline mb-1">
         <div style="color: var(--light-blue);" class=" w-36">Email: </div>
@@ -34,6 +40,7 @@
         data-action="input->searchable-table#filter"
       >
     </div>
+    <p class="font-bold mb-4" data-searchable-table-target="resultsSummary"></p>
     <table class="w-full table-auto">
       <thead>
         <tr style="background-color: var(--gray);">
