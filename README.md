@@ -1,24 +1,141 @@
-# README
+## "Book Shelf" API Documentation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://martinsbookshelf.herokuapp.com/
 
-Things you may want to cover:
 
-* Ruby version
+### Getting Access
 
-* System dependencies
+This API is invite only.
 
-* Configuration
+Upon the creation of your account you will be given an API key.
 
-* Database creation
+### Authentication
 
-* Database initialization
+Each API request needs to contain the following two authentication headers: `X-User-Token` and `X-User-Email`.
 
-* How to run the test suite
+`X-User-Token` must be set to the API key on your dashboard.
 
-* Services (job queues, cache servers, search engines, etc.)
+`X-User-Email` must be set to the email address of your account.
 
-* Deployment instructions
+### Endpoints
 
-* ...
+#### `GET /api/books`
+
+Unauthenticated. Returns all books.
+
+Response:
+
+```
+[
+  {
+    id: number
+    title: string
+    created_at: string
+  }
+]
+```
+
+-----
+
+#### `GET /api/book_stocks`
+
+Returns all of your book stocks of your book store.
+
+Response:
+
+```
+[
+  {
+    id: number
+    stock_level: number
+    in_stock: boolean
+    created_at: string
+    book: {
+      id: number
+      title: string
+    }
+  }
+]
+```
+
+-----
+
+#### `POST /api/book_stocks`
+
+Create a new book stock
+
+Body:
+
+```
+{
+  book_stock: {
+    book_id: number
+    stock_level: number
+    in_stock: boolean
+  }
+}
+```
+
+Response
+
+```
+{
+  id: number
+  stock_level: number
+  in_stock: boolean
+  create_at: string
+  book: {
+    id: number
+    title: string
+  }
+}
+```
+
+-----
+
+#### `PATCH /api/book_stocks/:id`
+
+Updates a given book stock
+
+Body:
+
+```
+{
+  book_stock: {
+    book_id: number
+    stock_level: number
+    in_stock: boolean
+  }
+}
+```
+
+Response
+
+```
+{
+  id: number
+  stock_level: number
+  in_stock: boolean
+  create_at: string
+  book: {
+    id: number
+    title: string
+  }
+}
+```
+
+-----
+
+#### `DELETE /api/book_stocks/:id`
+
+Deletes a given book stock
+
+Body: none
+
+Response:
+
+```
+{
+  message: "success"
+}
+```
