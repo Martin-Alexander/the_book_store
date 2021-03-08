@@ -13,8 +13,8 @@
   </head>
 
   <body>
+    <%= yield %>
     <p style="background-color: lightgreen;"><%= flash[:notice] %></p>
     <p style="background-color: wheat;"><%= flash[:alert] %></p>
-    <%= yield %>
   </body>
 </html>
