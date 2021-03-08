@@ -9,7 +9,8 @@ module.exports = {
       spacing: {
         '84': '21rem',
         '96': '24rem',
-      }
+      },
+      backgroundColor: ['odd']
      }
   },
   variants: {
