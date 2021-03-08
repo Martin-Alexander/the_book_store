@@ -17,7 +17,7 @@ class DashboardsController < ApplicationController
 
     @table_data = {
       title: "Books in Stock",
-      search_input_placehodler: "Search among #{"book".pluralize(book_stocks.length)}",
+      search_input_placehodler: "Search among #{book_stocks.length} #{"book".pluralize(book_stocks.length)}",
       searchable_row_index: 1,
       headers: ["id", "book", "stock level", "in stock", "created at", "updated at"],
       rows: rows

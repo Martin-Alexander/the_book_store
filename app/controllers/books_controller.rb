@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
     @table_data = {
       title: "All Books",
-      search_input_placehodler: "Search among #{"book".pluralize(books.length)}",
+      search_input_placehodler: "Search among #{books.length} #{"book".pluralize(books.length)}",
       searchable_row_index: 1,
       headers: ["id", "title", "created at", "updated at"],
       rows: rows
